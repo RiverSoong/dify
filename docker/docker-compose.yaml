@@ -416,6 +416,8 @@ services:
   api:
     image: langgenius/dify-api:1.0.0
     restart: always
+    ports:
+      - 127.0.0.1:5001:5001
     environment:
       # Use the shared environment variables.
       <<: *shared-api-worker-env
@@ -465,6 +467,8 @@ services:
   web:
     image: langgenius/dify-web:1.0.0
     restart: always
+    ports:
+      - 127.0.0.1:5001:5001
     environment:
       CONSOLE_API_URL: ${CONSOLE_API_URL:-}
       APP_API_URL: ${APP_API_URL:-}
